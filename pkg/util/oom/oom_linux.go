@@ -20,11 +20,11 @@ package oom
 
 import (
 	"fmt"
-	"io/ioutil"
+	//"io/ioutil"
 	"os"
-	"path"
+	//"path"
 	"path/filepath"
-	"strconv"
+	//"strconv"
 
 	cmutil "k8s.io/kubernetes/pkg/kubelet/cm/util"
 
@@ -47,7 +47,7 @@ func getPids(cgroupName string) ([]int, error) {
 // Writes 'value' to /proc/<pid>/oom_score_adj. PID = 0 means self
 // Returns os.ErrNotExist if the `pid` does not exist.
 func applyOOMScoreAdj(pid int, oomScoreAdj int) error {
-	if pid < 0 {
+	/*if pid < 0 {
 		return fmt.Errorf("invalid PID %d specified for oom_score_adj", pid)
 	}
 
@@ -79,7 +79,8 @@ func applyOOMScoreAdj(pid int, oomScoreAdj int) error {
 	if err != nil {
 		glog.V(2).Infof("failed to set %q to %q: %v", oomScoreAdjPath, value, err)
 	}
-	return err
+	return err*/
+	return nil
 }
 
 // Writes 'value' to /proc/<pid>/oom_score_adj for all processes in cgroup cgroupName.
