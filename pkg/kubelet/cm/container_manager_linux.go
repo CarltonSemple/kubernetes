@@ -333,10 +333,10 @@ func setupKernelTunables(option KernelTunableBehavior) error {
 			glog.V(2).Infof("Invalid kernel flag: %v, expected value: %v, actual value: %v", flag, expectedValue, val)
 		case KernelTunableModify:
 			glog.V(2).Infof("Updating kernel flag: %v, expected value: %v, actual value: %v", flag, expectedValue, val)
-			err = sysctl.SetSysctl(flag, expectedValue)
+			/*err = sysctl.SetSysctl(flag, expectedValue)
 			if err != nil {
 				errList = append(errList, err)
-			}
+			}*/
 		}
 	}
 	return utilerrors.NewAggregate(errList)
